@@ -118,23 +118,6 @@ void main(void) {
 
 
 #if 0
-	/* fast red, yellow, green */
-	timers.led_on_red  =200;
-	output_low(CTRL_D);
-	delay_ms(1600);
-
-	timers.led_on_green=400;
-	output_high(CTRL_D);
-	delay_ms(1600);
-
-	timers.led_on_red=0;
-	output_low(CTRL_D);
-	delay_ms(1600);
-
-	timers.led_on_green=0;
-#endif
-
-#if 0
 	output_high(RS485_DE);
 	fprintf(MODBUS_SERIAL,"# pdist48 (%c%lu) start up (modbus RS-485 stream) (modbus address=%u) %s\r\n",
 		config.serial_prefix,
@@ -185,40 +168,3 @@ void main(void) {
 	}
 }
 
-
-/* extra stuff below */
-
-
-#if 0
-	/* fast red, yellow, green */
-	timers.led_on_red  =200;
-	delay_ms(160);
-	timers.led_on_green=400;
-	delay_ms(160);
-	timers.led_on_red=0;
-	delay_ms(160);
-	timers.led_on_green=0;
-#endif
-
-#if 0
-		delay_ms(50);
-
-		if ( 0xFF == i )
-			delay_ms(1000);
-
-
-
-		i++;
-
-		update_channels(i);
-
-void update_channels(int8 val) {
-	int8 j;
-
-	for ( j=0 ; j<8 ; j++ ) {
-		current.p_on[j]=bit_test(val,j);
-	}
-}
-
-
-#endif
